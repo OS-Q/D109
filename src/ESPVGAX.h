@@ -1,19 +1,4 @@
-/*
-ESPVGAX Library for Arduino ESP8266
-Sourcecode url: https://github.com/smaffer/espvgax
 
-512x480px VGA framebuffer with 1bpp, +2 optionals line colors.
-
-COPYRIGHT (C) 2018 Sandro Maffiodo
-smaffer@gmail.com
-http://www.sandromaffiodo.com
-
-VGA signal generation based on https://github.com/hchunhui/esp-vga (thanks for 
-your awesome works).
-
-See https://github.com/smaffer/espvgax for the library description, for the
-hardware wiring and library usage.
-*/
 #ifndef __ESPVGAX_LIBRARY__
 #define __ESPVGAX_LIBRARY__
 
@@ -28,9 +13,9 @@ hardware wiring and library usage.
 #define ESPVGAX_HEIGHT 480
 #define ESPVGAX_FBBSIZE (ESPVGAX_HEIGHT*ESPVGAX_BWIDTH)
 
-#define ESPVGAX_HSYNC_PIN D2 
-#define ESPVGAX_VSYNC_PIN D1 
-#define ESPVGAX_COLOR_PIN D7 //cannot be changed. D7=GPIO13, used by HSPI
+#define ESPVGAX_HSYNC_PIN 4
+#define ESPVGAX_VSYNC_PIN 5 
+#define ESPVGAX_COLOR_PIN 13 //cannot be changed. D7=GPIO13, used by HSPI
 /* 
  * A NICE TRICK: connect a wire to D5 if you want a background color: this PIN 
  * is HIGH when PIXELDATA is sent to VGA. You can choose one of the two VGA RGB 
@@ -48,13 +33,13 @@ hardware wiring and library usage.
  * WARNING: If you change this constant you NEED to change sources where GP16O
  *  hardware address is used) 
  */
-#define ESPVGAX_EXTRA_COLOR1_PIN D0 
+#define ESPVGAX_EXTRA_COLOR1_PIN 16 
 /* 
  * optional PIN for line coloring, used only if ESPVGAX_EXTRA_COLORS is defined
  * 
  * WARNING: This PIN must be disconnected before upload sketches) 
  */
-#define ESPVGAX_EXTRA_COLOR2_PIN D4 
+#define ESPVGAX_EXTRA_COLOR2_PIN 2 
 // line property bits
 #define ESPVGAX_PROP_COLOR1 1
 #define ESPVGAX_PROP_COLOR2 2
